@@ -244,18 +244,15 @@ class Front extends _front{
         0:{
           dots: true
         }
-      },
-      dots:{
-        class:`control-button`
       }
     });
     new Slider({
       container: '.retailers-slider',
       dots: {
-        container: `.retailers-slider-dots`
+        container: `.retailers .multiple-slider-dots`
       },
       arrows:{
-        container: '.retailers .pagination',
+        container: '.retailers .multiple-slider-control',
         prev: `.retailers-prev`,
         next: `.retailers-next`
       },
@@ -281,10 +278,10 @@ class Front extends _front{
     new Slider({
       container: '.services-slider',
       dots: {
-        container: '.services-slider-dots'
+        container: '.services .multiple-slider-dots'
       },
       arrows:{
-        container: '.services .pagination',
+        container: '.services .multiple-slider-control',
         prev: `.services-prev`,
         next: `.services-next`
       },
@@ -309,7 +306,12 @@ class Front extends _front{
     new Slider({
       container: '.news-slider',
       dots: {
-        container: `.news-slider-dots`
+        container: `.news .multiple-slider-dots`
+      },
+      arrows: {
+        container: `.news .multiple-slider-control`,
+        next: '.news-next',
+        prev: '.news-prev'
       },
       settings: {
         0:{

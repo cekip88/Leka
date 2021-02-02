@@ -287,15 +287,14 @@
                 </div></a>
         </div>
         <div class="section">
-            <div class="pagination">
-                <button class="button-arrow retailers-prev">
+            <div class="multiple-slider-control">
+                <button class="multiple-slider-arrow retailers-prev">
                     <svg width="53" height="19" viewBox="0 0 53 19" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M52.3211 9.35676H0.999999M0.999999 9.35676L10.4431 0.5448M0.999999 9.35676L10.4431 18.1687"></path>
                     </svg>
                 </button>
-	              <div class="retailers-slider-dots">
-	              </div>
-                <button class="button-arrow retailers-next">
+	              <div class="multiple-slider-dots"></div>
+                <button class="multiple-slider-arrow retailers-next">
                     <svg width="53" height="19" viewBox="0 0 53 19" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M0.178864 9.35676H51.5M51.5 9.35676L42.0569 0.5448M51.5 9.35676L42.0569 18.1687"></path>
                     </svg>
@@ -418,14 +417,14 @@
                 <h5 class="slide-title"><span>Вальцовка металла</span></h5></a>
         </div>
         <div class="section">
-            <div class="pagination">
-                <button class="button-arrow services-prev">
+            <div class="multiple-slider-control">
+                <button class="multiple-slider-arrow services-prev">
                     <svg width="53" height="19" viewBox="0 0 53 19" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M52.3211 9.35676H0.999999M0.999999 9.35676L10.4431 0.5448M0.999999 9.35676L10.4431 18.1687"></path>
                     </svg>
                 </button>
-	              <div class="services-slider-dots"></div>
-                <button class="button-arrow services-next">
+	              <div class="multiple-slider-dots"></div>
+                <button class="multiple-slider-arrow services-next">
                     <svg width="53" height="19" viewBox="0 0 53 19" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M0.178864 9.35676H51.5M51.5 9.35676L42.0569 0.5448M51.5 9.35676L42.0569 18.1687"></path>
                     </svg>
@@ -532,14 +531,14 @@
             </div>
         </div>
         <div class="section">
-            <div class="pagination">
-                <button class="button-arrow" data-click-action="news-slider:prev">
+            <div class="multiple-slider-control">
+                <button class="multiple-slider-arrow news-prev">
                     <svg width="53" height="19" viewBox="0 0 53 19" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M52.3211 9.35676H0.999999M0.999999 9.35676L10.4431 0.5448M0.999999 9.35676L10.4431 18.1687"></path>
                     </svg>
                 </button>
-	              <div class="news-slider-dots"></div>
-                <button class="button-arrow" data-click-action="news-slider:next">
+	              <div class="multiple-slider-dots"></div>
+                <button class="multiple-slider-arrow news-next">
                     <svg width="53" height="19" viewBox="0 0 53 19" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M0.178864 9.35676H51.5M51.5 9.35676L42.0569 0.5448M51.5 9.35676L42.0569 18.1687"></path>
                     </svg>
