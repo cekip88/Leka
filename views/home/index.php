@@ -4,7 +4,7 @@
 
 <main>
     <section class="main-slider">
-        <div class="slide slide-1">
+        <div class="slide">
             <div class="section slide-inner">
                 <h2 class="slide-title title"><span><i>Металлоизделия</i></span><span><i>высокого</i><i>качества</i></span></h2>
                 <div class="slide-row">
@@ -31,7 +31,7 @@
             <div class="slide-bgc"><img src="img/bgc-1.jpg" alt=""/>
             </div>
         </div>
-        <div class="slide slide-2">
+        <div class="slide">
             <div class="section slide-inner">
                 <h2 class="slide-title title"><span><i>Промышленные</i></span><span><i>услуги</i></span></h2>
                 <div class="slide-row">
@@ -64,7 +64,7 @@
             <div class="slide-bgc"><img src="img/bgc-2.jpg" alt=""/>
             </div>
         </div>
-        <div class="slide slide-3">
+        <div class="slide">
             <div class="section slide-inner">
                 <h2 class="slide-title title"><span><i>Противопожарное</i></span><span><i>оборудование</i></span></h2>
                 <div class="slide-row">
@@ -83,7 +83,7 @@
             <div class="slide-bgc"><img src="img/bgc-3.jpg" alt=""/>
             </div>
         </div>
-        <div class="slide slide-4">
+        <div class="slide">
             <div class="section slide-inner">
                 <h2 class="slide-title title"><span><i>Изготовление</i></span><span><i>вентиляции</i></span></h2>
                 <div class="slide-row"><a class="slide-button button" href="#">Подробнее</a></div>
@@ -91,7 +91,7 @@
             <div class="slide-bgc"><img src="img/bgc-4.jpg" alt=""/>
             </div>
         </div>
-        <div class="slide slide-5">
+        <div class="slide">
             <div class="section slide-inner">
                 <h2 class="slide-title title"><span><i>Услуги</i><i>лазерной</i><i>резки</i></span><span><i>металла -</i><i>от розницы до</i></span><span><i>промышленных</i><i>масштабов</i></span></h2>
                 <div class="slide-row"><a class="slide-button button" href="#">Подробнее</a></div>
@@ -99,7 +99,7 @@
             <div class="slide-bgc"><img src="img/bgc-5.jpg" alt=""/>
             </div>
         </div>
-        <div class="slide slide-6">
+        <div class="slide">
             <div class="section slide-inner">
                 <h2 class="slide-title title"><span><i>Вентиляция</i></span><span><i>будущего</i></span></h2>
                 <div class="slide-row">
@@ -200,7 +200,8 @@
         <div class="section">
             <h2 class="title">Розничные предложения</h2>
         </div>
-        <div class="multiple-slider"><a class="slide" href="#">
+        <div class="multiple-slider retailers-slider">
+	        <a class="slide" href="#">
                 <div class="slide-inner">
                     <div class="slide-photo"><img src="img/dveri.png" alt=""/>
                     </div>
@@ -211,7 +212,8 @@
                         <div class="old-price">999999 ₸</div>
                         <div class="current-price">664499 ₸</div>
                     </div>
-                </div></a><a class="slide" href="#">
+                </div></a>
+	        <a class="slide" href="#">
                 <div class="slide-inner">
                     <div class="slide-photo"><img src="img/dveri.png" alt=""/>
                     </div>
@@ -222,7 +224,8 @@
                         <div class="old-price">999999 ₸</div>
                         <div class="current-price">664499 ₸</div>
                     </div>
-                </div></a><a class="slide" href="#">
+                </div></a>
+	        <a class="slide" href="#">
                 <div class="slide-inner">
                     <div class="slide-photo"><img src="img/dveri.png" alt=""/>
                     </div>
@@ -233,7 +236,8 @@
                         <div class="old-price">999999 ₸</div>
                         <div class="current-price">664499 ₸</div>
                     </div>
-                </div></a><a class="slide" href="#">
+                </div></a>
+	        <a class="slide" href="#">
                 <div class="slide-inner">
                     <div class="slide-photo"><img src="img/dveri.png" alt=""/>
                     </div>
@@ -244,7 +248,8 @@
                         <div class="old-price">999999 ₸</div>
                         <div class="current-price">664499 ₸</div>
                     </div>
-                </div></a><a class="slide" href="#">
+                </div></a>
+	        <a class="slide" href="#">
                 <div class="slide-inner">
                     <div class="slide-photo"><img src="img/dveri.png" alt=""/>
                     </div>
@@ -255,7 +260,8 @@
                         <div class="old-price">999999 ₸</div>
                         <div class="current-price">664499 ₸</div>
                     </div>
-                </div></a><a class="slide" href="#">
+                </div></a>
+	        <a class="slide" href="#">
                 <div class="slide-inner">
                     <div class="slide-photo"><img src="img/dveri.png" alt=""/>
                     </div>
@@ -266,7 +272,8 @@
                         <div class="old-price">999999 ₸</div>
                         <div class="current-price">664499 ₸</div>
                     </div>
-                </div></a><a class="slide" href="#">
+                </div></a>
+	        <a class="slide" href="#">
                 <div class="slide-inner">
                     <div class="slide-photo"><img src="img/dveri.png" alt=""/>
                     </div>
@@ -281,18 +288,14 @@
         </div>
         <div class="section">
             <div class="pagination">
-                <button class="button-arrow">
+                <button class="button-arrow retailers-prev">
                     <svg width="53" height="19" viewBox="0 0 53 19" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M52.3211 9.35676H0.999999M0.999999 9.35676L10.4431 0.5448M0.999999 9.35676L10.4431 18.1687"></path>
                     </svg>
                 </button>
-                <button class="button-number active">1</button>
-                <button class="button-number">2</button>
-                <button class="button-number">3</button>
-                <button class="button-number">4</button>
-                <button class="button-number">...</button>
-                <button class="button-number">6</button>
-                <button class="button-arrow">
+	              <div class="retailers-slider-dots">
+	              </div>
+                <button class="button-arrow retailers-next">
                     <svg width="53" height="19" viewBox="0 0 53 19" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M0.178864 9.35676H51.5M51.5 9.35676L42.0569 0.5448M51.5 9.35676L42.0569 18.1687"></path>
                     </svg>
@@ -388,45 +391,48 @@
         <div class="section">
             <h2 class="title">Услуги</h2>
         </div>
-        <div class="multiple-slider"><a class="slide" href="./laser.php">
+        <div class="multiple-slider services-slider">
+	        <a class="slide" href="./laser.php">
                 <div class="slide-img"><img src="img/services-slide-1.jpg" alt=""/>
                 </div>
-                <h5 class="slide-title"><span>Лазерная резка</span></h5></a><a class="slide" href="./laser.php">
+                <h5 class="slide-title"><span>Лазерная резка</span></h5></a>
+	        <a class="slide" href="./laser.php">
                 <div class="slide-img"><img src="img/services-slide-2.jpg" alt=""/>
                 </div>
-                <h5 class="slide-title"><span>Вальцовка металла</span></h5></a><a class="slide" href="./laser.php">
+                <h5 class="slide-title"><span>Вальцовка металла</span></h5></a>
+	        <a class="slide" href="./laser.php">
                 <div class="slide-img"><img src="img/services-slide-1.jpg" alt=""/>
                 </div>
-                <h5 class="slide-title"><span>Лазерная резка</span></h5></a><a class="slide" href="./laser.php">
+                <h5 class="slide-title"><span>Лазерная резка</span></h5></a>
+	        <a class="slide" href="./laser.php">
                 <div class="slide-img"><img src="img/services-slide-2.jpg" alt=""/>
                 </div>
-                <h5 class="slide-title"><span>Вальцовка металла</span></h5></a><a class="slide" href="./laser.php">
+                <h5 class="slide-title"><span>Вальцовка металла</span></h5></a>
+	        <a class="slide" href="./laser.php">
                 <div class="slide-img"><img src="img/services-slide-1.jpg" alt=""/>
                 </div>
-                <h5 class="slide-title"><span>Лазерная резка</span></h5></a><a class="slide" href="./laser.php">
+                <h5 class="slide-title"><span>Лазерная резка</span></h5></a>
+	        <a class="slide" href="./laser.php">
                 <div class="slide-img"><img src="img/services-slide-2.jpg" alt=""/>
                 </div>
-                <h5 class="slide-title"><span>Вальцовка металла</span></h5></a></div>
+                <h5 class="slide-title"><span>Вальцовка металла</span></h5></a>
+        </div>
         <div class="section">
             <div class="pagination">
-                <button class="button-arrow">
+                <button class="button-arrow services-prev">
                     <svg width="53" height="19" viewBox="0 0 53 19" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M52.3211 9.35676H0.999999M0.999999 9.35676L10.4431 0.5448M0.999999 9.35676L10.4431 18.1687"></path>
                     </svg>
                 </button>
-                <button class="button-number active">1</button>
-                <button class="button-number">2</button>
-                <button class="button-number">3</button>
-                <button class="button-number">4</button>
-                <button class="button-number">...</button>
-                <button class="button-number">6</button>
-                <button class="button-arrow">
+	              <div class="services-slider-dots"></div>
+                <button class="button-arrow services-next">
                     <svg width="53" height="19" viewBox="0 0 53 19" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M0.178864 9.35676H51.5M51.5 9.35676L42.0569 0.5448M51.5 9.35676L42.0569 18.1687"></path>
                     </svg>
                 </button>
             </div>
-        </div><img src="img/w.svg" alt=""/>
+        </div>
+	      <img src="img/w.svg" alt=""/>
     </section>
     <section class="why main-block">
         <div class="section">
@@ -469,7 +475,7 @@
         <div class="section">
             <h2 class="title">Новости и акции</h2>
         </div>
-        <div class="multiple-slider">
+        <div class="multiple-slider news-slider">
             <div class="slide"><img class="slide-img" src="img/news-slide-1.jpg" alt=""/>
                 <div class="slide-info">
                     <div class="slide-theme">Новости</div>
@@ -527,18 +533,13 @@
         </div>
         <div class="section">
             <div class="pagination">
-                <button class="button-arrow">
+                <button class="button-arrow" data-click-action="news-slider:prev">
                     <svg width="53" height="19" viewBox="0 0 53 19" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M52.3211 9.35676H0.999999M0.999999 9.35676L10.4431 0.5448M0.999999 9.35676L10.4431 18.1687"></path>
                     </svg>
                 </button>
-                <button class="button-number active">1</button>
-                <button class="button-number">2</button>
-                <button class="button-number">3</button>
-                <button class="button-number">4</button>
-                <button class="button-number">...</button>
-                <button class="button-number">6</button>
-                <button class="button-arrow">
+	              <div class="news-slider-dots"></div>
+                <button class="button-arrow" data-click-action="news-slider:next">
                     <svg width="53" height="19" viewBox="0 0 53 19" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M0.178864 9.35676H51.5M51.5 9.35676L42.0569 0.5448M51.5 9.35676L42.0569 18.1687"></path>
                     </svg>
@@ -614,7 +615,7 @@
     <section class="partners main-block">
         <div class="section">
             <h2 class="title">Наши партнеры</h2>
-            <div class="slider">
+            <div class="partners-slider">
                 <div class="slide partners-slide">
                     <div class="slide-logo"><img src="img/BI_Group.png" alt=""/>
                     </div>

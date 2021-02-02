@@ -4,19 +4,23 @@ import { gsap } from '../../../libs/GreenSock.lib.js'
 export class Slider{
 	constructor(params) {
 		const _ = this;
+
+		//_.container - sliderInit (контейнер слайдера)
+		//_.slides - slidesToDefault (массив gSlides)
+
 		_.gsap = gsap;
 		_.tl = _.gsap.timeline();
 
 		_.sliderData = params;
-		_.slidesKeeper = [];
-		_.componentName = _.sliderData['name'];
+
+		_.componentName = _.sliderData['name'] ? _.sliderData['name'] : _.sliderData['container'].substring(1,_.sliderData['container'].length);
 
 		_.init();
 
 		MainEventBus
-				.on(_,'next')
-				.on(_,'prev')
-				.on(_,'dot');
+			.on(_,'next')
+			.on(_,'prev')
+			.on(_,'dot');
 	}
 	// вспомогательные методы
 	el(tag,params = {}){
@@ -46,168 +50,302 @@ export class Slider{
 		return temp;
 	}
 	getSlide(pos){
-		return this.slidesKeeper[pos];
+		return this.slides[pos];
+	}
+	undefinedCheck(setting){
+		return setting !== undefined
+	}
+	createResolutions(){
+		this.resolutions = {
+			next: Infinity,
+			current: null
+		};
 	}
 
 	// Обрабатывает входящие данные и вызывает методы для их преобразования
 	sliderInit(){
 		const _ = this;
-		if (!_.sliderData.container) return;
+		_.container = document.querySelector(`${_.sliderData['container']}`);
+		if (!_.container) return;
+
 		_.settings = _.sliderData['settings'];
-		_.sliderData['container'] = document.querySelector(`.${_.sliderData.container}`)
+		_.dots = _.sliderData['dots'] ? _.sliderData['dots'] : {};
+		_.arrows = _.sliderData['arrows'] ? _.sliderData['arrows'] : {};
 
-		_.setDefaultSettings();
-		_.slidesToDefault(_.sliderData['slides']);
-		_.dotsToDefault(_.sliderData['dots']);
-		_.containerToDefault(_.sliderData['container']);
+		let slidesStyles = _.acceptSettings();
+		_.slidesToDefault();
+		_.calcSlidesCount(slidesStyles);
+		_.calcSlidesCountForMove();
 
-		_.acceptSettings();
+		_.acceptSlidesSettings(slidesStyles);
 
-		_.sliderFilling();
+		_.containerToDefault();
+
+		_.dotsToDefault();
+		_.dotsContainerPrepare();
+
+		_.arrowsContainerPrepare();
+		_.arrowToDefault('prev');
+		_.arrowToDefault('next');
+		_.arrowsPrepare();
+
+		_.sliderPrepare();
 		_.setGSliderHeight();
+
+		_.dotsPrepare();
 	}
 
 	// Приводит слайды к единому виду
-	slidesToDefault(slidesData = {}){
+	slidesToDefault(){
 		const _ = this;
-		let slides = slidesData['list'];
-		let type;
-		if (slides) {
-			type = slidesData['type'];
-			type = type ? type.toLowerCase() : null;
-			if (type === 'class') slides = document.querySelectorAll(`.${slidesData['list']}`);
-		} else {
-			slides = _.sliderData['container'].children;
-			type = 'html';
-		}
 
+		let slides = _.container.children;
 		let length = slides.length;
+		_.slides = [];
 
 		for (let i = 0; i < length; i++){
 			let
-					slide = slides[type === 'html' ? 0 : i],
+					slide = slides[0],
 					gSlide = _.el('DIV',{'data-pos':i,class:'g-slide',childes:[slide]});
-
-			_.slidesKeeper.push(gSlide)
+			_.slides.push(gSlide)
 		}
 	}
-	// Приводит доты к единому виду
-	dotsToDefault(dotsData = {}){
+	calcSlidesCount(slideStyles) {
 		const _ = this;
-		_.dots = dotsData;
-		if (_.dots['list']){
-			_.dots['list'] = document.querySelectorAll(`.${_.sliderData['dots']['class']}`);
-			_.dots['list'].forEach(function (dot,index){
-				_.setAttrToDots(dot,index);
-			})
-		} else {
-			let
-					slidesCount = _.slidesKeeper.length,
-					controlTpl = _.el('DIV',{
-						class: 'slider-control',
-						style: `width:${(slidesCount * 44) - 28}px`,
-						childes: [_.createDots(slidesCount)]
-					});
-			_.dots['list'] = controlTpl.children;
-			_.sliderData['container'].append(controlTpl);
+
+		if (_.slides['length'] < _.showCount){
+			slideStyles['flex'] = `0 0 ${100 / _.slides['length']}%`;
+			slideStyles['width'] = `${100 / _.slides['length']}%`;
+			_.moveCount = 1;
+			_.autoSwitch = false;
+			_.dots['show'] = false;
+			_.arrows['show'] = false;
 		}
-		_.dots['active'] = _.dots['list'][0];
+
+		if (_.showCount === _.slides['length']){
+			let count = _.slides['length'];
+			_.cloneSlides(count);
+			_.calcSlidesCount();
+		}
+	}
+	calcSlidesCountForMove(){
+		const _ = this;
+		if (_.moveCount <= 1) return;
+		let remainder = _.slides.length % _.moveCount;
+		let count = _.moveCount - remainder;
+		_.cloneSlides(count);
+	}
+	cloneSlides(count){
+		const _ = this;
+		for (let i = 0; i < count; i++){
+			let slide = _.slides[i].cloneNode(true);
+			slide.setAttribute('data-pos',count + i);
+			_.slides.push(slide)
+		}
+	}
+
+	// Приводит доты к единому виду
+	dotsContainerPrepare(){
+		const _ = this;
+		if (!_.dots['container']){
+			_.dots['container'] = _.el('DIV',{
+				class: 'g-control'
+			});
+			_.ownDotsContainer = true;
+			_.container.append(_.dots['container']);
+		} else {
+			_.dots['container'] = document.querySelector(`${_.dots['container']}`);
+		}
+	}
+	dotsToDefault(){
+		const _ = this;
+		if (!_.dots['list']){
+			_.ownDots = true;
+			_.dots['list'] = _.createDots();
+		} else {
+			let list = document.querySelectorAll(`${_.dots['list']}`);
+			_.dots['list'] = [];
+			list.forEach(function (dot,index){
+				dot.setAttribute('data-click-action',`${_.componentName}:dot`);
+				dot.setAttribute('data-index',`${index}`)
+				_.dots['list'].push(dot);
+			})
+		}
+	}
+	createDots(){
+		const _ = this;
+		let count = _.slides['length'] / _.moveCount;
+		let dots = [];
+		for (let i = 0; i < count; i++){
+			let dot = _.el('BUTTON',{
+				'class': _.dots['class'] ? `${_.dots['class']}` : 'g-control-button',
+				'data-click-action': `${_.componentName}:dot`,
+				'data-index': i * _.moveCount
+			});
+			dots.push(dot);
+		}
+		return dots;
+	}
+	dotsPrepare(){
+		const _ = this;
+		if (_.ownDots) _.dots['list'] = [];
+
+		if (_.dots['active']){
+			_.dots['active'].classList.remove('active');
+			_.dots['active'] = undefined;
+		}
+		_.dots['container'].innerHTML = '';
+		if (!_.dots['show']) return;
+		if (_.ownDots) _.dots['list'] = _.createDots();
+		_.dots['list'].forEach(function (dot){
+			_.dots['container'].append(dot);
+		});
+		if (_.ownDotsContainer){
+			let width = 34 * _.dots['list'].length;
+			_.dots['container'].setAttribute('style',`width:${width}px`);
+		}
+
+		let currentPos = _.gSlider.firstElementChild.getAttribute('data-pos');
+		_.dots['active'] = _.dots['container'].querySelector(`[data-index='${currentPos}']`);
 		_.dots['active'].classList.add('active');
 	}
-	createDots(count){
-		const _ = this;
 
-		let temp = _.el('temp');
-		for (let i = 0; i < count; i++){
-			let dot = _.el('BUTTON',{class: 'control-button'});
-			_.setAttrToDots(dot,i);
-			temp.append(dot);
-		}
-		return temp;
-	}
-	setAttrToDots(dot,index){
+	// Приводит стрелки к единому виду
+	arrowToDefault(direction){
 		const _ = this;
-		dot.setAttribute('data-click-action',`${_.componentName}:dot`);
-		dot.setAttribute('data-index',index)
+		if (!_.arrows[direction]){
+			_.arrows[direction] = _.createArrow(direction);
+		} else {
+			_.arrows[direction] = document.querySelector(`${_.arrows[direction]}`);
+			_.arrows[direction].setAttribute('data-click-action',`${_.componentName}:${direction}`);
+		}
 	}
+	createArrow(direction){
+		const _ = this;
+		let arrow = _.el('BUTTON',{
+			'class': _.arrows['class'] ? `${_.arrows['class']}` : 'g-arrows-button',
+			'data-click-action': `${_.componentName}:${direction}`
+		});
+		arrow.innerHTML = `
+			<svg viewBox="0 0 50 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<path d="M3 23H47M47 23L26.75 3M47 23L26.75 43" stroke="#222222" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+			</svg>`
+		direction === 'next' ? arrow.classList.add('g-arrows-next') : arrow.classList.add('g-arrows-prev');
+		return arrow;
+	}
+	arrowsPrepare(){
+		const _ = this;
+		if (!_.arrows['show']) {
+			_.arrows['prev'].remove();
+			_.arrows['next'].remove();
+		}
+		else {
+			_.arrows['container'].prepend(_.arrows['prev']);
+			_.arrows['container'].append(_.arrows['next']);
+		}
+	}
+	arrowsContainerPrepare(){
+		const _ = this;
+		_.arrows['container'] = _.arrows['container'] ? document.querySelector(`${_.arrows['container']}`) : _.container;
+	}
+
 	// Приводит контейнер к единому виду
-	containerToDefault(cont){
+	containerToDefault(){
 		const _ = this;
 		_.gSlider = _.el('DIV',{class: 'g-slider'});
-		cont.prepend(_.gSlider);
-		return cont;
+		_.container.setAttribute('style',`position:relative;`)
+		_.container.prepend(_.gSlider);
 	}
 
 	// Применяет переданные настройки
-	setDefaultSettings(){
-		const _ = this;
-		_.showCount = 1;
-		_.animTime = 0.5;
-		_.moveCount = 1;
-		_.animation = 'scroll';
-	}
 	acceptSettings(){
 		const _ = this;
-		_.resolutions = {
-			next: Infinity,
-			current: null
-		};
-		let styles = _.setSettingsData();
-		let slideStyleStr = _.setStyleStr(styles);
-		_.setSettingsToSlides(slideStyleStr);
+		_.acceptDefaultSettings();
+
+		let slideStyles = {};
+		_.createResolutions();
+
+		return _.settingsHandler(slideStyles);
 	}
-	setSettingsData(){
+	acceptDefaultSettings(){
 		const _ = this;
-		let styles = {};
+		_.showCount = 1;
+		_.moveCount = 1;
+		_.animTime = 0.3;
+		_.animation = 'scroll';
+		_.dots['show'] = false;
+		_.arrows['show'] = false;
+	}
+	settingsHandler(styles){
+		const _ = this;
 		for (let resolution in _.settings){
-			let resValue = _.settings[resolution];
-			if (window.innerWidth >= parseInt(resolution)) {
-				_.resolutions['current'] = parseInt(resolution);
+			let settings = _.settings[resolution];
+			if (typeof resolution !== "number") resolution = parseInt(resolution);
+			if (window.innerWidth >= resolution) {
 
-				if (resValue['padding']) styles['padding'] = resValue['padding'];
-				if (resValue['width']){
-					styles['width'] = `${resValue['width']}px`;
-					styles['flex'] = `0 0 ${resValue['width']}px`;
-					_.showCount = _.slidesKeeper.length - 1;
-				} else if (resValue['count']){
-					styles['width'] = `${100 / resValue['count']}%`;
-					styles['flex'] = `0 0 ${100 / resValue['count']}%`;
-					_.showCount = parseInt(resValue['count'])
-				}
+				_.resolutions['current'] = resolution;
+				styles = _.collectSlidesSettings(styles,settings);
+				_.acceptBasicSettings(settings);
 
-				_.animTime = resValue['animationTime'] ? resValue['animationTime'] : _.animTime;
-				_.moveCount = resValue['moveCount'] ? resValue['moveCount'] : _.moveCount;
-				_.animation = resValue['animation'] ? resValue['animation'] : _.animation;
 			} else {
-				_.resolutions['next'] = parseInt(resolution);
+				_.resolutions['next'] = resolution;
 				break;
 			}
 		}
 		return styles;
 	}
-	setStyleStr(styles){
-		let slideStyleStr = '';
+	collectSlidesSettings(styles,settings){
+		const _ = this;
+		if (_.undefinedCheck(settings['padding'])) styles['padding'] = settings['padding'];
+		if (_.undefinedCheck(settings['width'])) {
+			styles['width'] = `${settings['width']}px`;
+			styles['flex'] = `0 0 ${settings['width']}px`;
+		} else if (_.undefinedCheck(settings['count'])) {
+			styles['width'] = `${100 / settings['count']}%`;
+			styles['flex'] = `0 0 ${100 / settings['count']}%`;
+		}
+		return styles;
+	}
+	acceptBasicSettings(settings){
+		const _ = this;
+		if (_.undefinedCheck(settings['width'])) _.showCount = Math.ceil(_.container.clientWidth / settings['width']);
+		else if (_.undefinedCheck(settings['count'])) _.showCount = parseInt(settings['count'])
+
+		_.animTime = _.undefinedCheck(settings['animationTime']) ? settings['animationTime'] : _.animTime;
+		_.moveCount = _.undefinedCheck(settings['moveCount']) ? settings['moveCount'] : _.moveCount;
+		_.animation = _.undefinedCheck(settings['animation']) ? settings['animation'] : _.animation;
+		_.dots['show'] = _.undefinedCheck(settings['dots']) ? settings['dots'] : _.dots['show'];
+		_.arrows['show'] = _.undefinedCheck(settings['arrows']) ? settings['arrows'] : _.arrows['show'];
+	}
+
+	acceptSlidesSettings(styles){
+		let stylesString = this.slidesSettingsToString(styles);
+		this.setSettingsToSlides(stylesString);
+	}
+	slidesSettingsToString(styles){
+		let stylesString = '';
 		for (let style in styles){
 			let subStr = style + ':' + styles[style] + ';';
-			slideStyleStr += subStr;
+			stylesString += subStr;
 		}
-		if (!slideStyleStr) slideStyleStr = `width:100%`;
-		return slideStyleStr;
+		if (!stylesString) stylesString = `width:100%`;
+		return stylesString;
 	}
-	setSettingsToSlides(slideStyleStr){
+	setSettingsToSlides(stylesString){
 		const _ = this;
-		for (let i = 0; i < _.slidesKeeper.length; i++){
-			let slide = _.slidesKeeper[i];
-			slide.setAttribute('style',slideStyleStr);
+		for (let i = 0; i < _.slides.length; i++){
+			let slide = _.slides[i];
+			slide.setAttribute('style',stylesString);
 		}
 	}
 
-	sliderFilling(){
+	sliderPrepare(){
 		const _ = this;
 		_.gSlider.innerHTML = '';
 		_.currentPosNext = 0;
 		_.currentPosPrev = _.showCount - 1;
-		for(let i = 0; i < _.showCount; i++){
+		let count = _.showCount < _.slides['length'] ? _.showCount : _.slides['length'];
+		for(let i = 0; i < count; i++){
 			let slide = _.getSlide(i);
 			_.gSlider.append(slide);
 			_.gsap.set(slide,{x:slide.clientWidth * i});
@@ -229,7 +367,15 @@ export class Slider{
 		const _ = this;
 		let btn = clickData['item'];
 		let index = parseInt(btn.getAttribute('data-index'));
-		let moveCount = index - _.currentPosNext;
+		let moveCount;
+		moveCount = index - _.currentPosNext;
+
+		if (moveCount > (_.slides.length / 2)){
+			moveCount = moveCount - _.slides.length;
+		} else if (moveCount < -(_.slides.length / 2)){
+			moveCount = moveCount + _.slides.length;
+		}
+
 		if (moveCount === 0) return;
 		if (moveCount < 0){
 			moveCount *= -1;
@@ -241,11 +387,11 @@ export class Slider{
 
 	prev(){
 		const _ = this;
-		_.moveToPrev(_.moveCount);
+		_.moveToPrev();
 	}
 	next(){
 		const _ = this;
-		_.moveToNext(_.moveCount);
+		_.moveToNext();
 	}
 	moveToNext(count = this.moveCount, partTime = this.moveCount){
 		const _ = this;
@@ -253,7 +399,7 @@ export class Slider{
 			_.swipeAccess = false;
 
 			let
-					len = _.slidesKeeper.length,
+					len = _.slides.length,
 					currentSlide = _.gSlider.querySelector(`[data-pos='${_.currentPosNext}']`),
 					nextPos = _.currentPosNext + _.showCount;
 
@@ -277,7 +423,7 @@ export class Slider{
 			_.swipeAccess = false;
 
 			let
-					len = _.slidesKeeper.length,
+					len = _.slides.length,
 					currentSlide = _.gSlider.querySelector(`[data-pos='${_.currentPosPrev}']`),
 					nextPos = _.currentPosPrev - _.showCount;
 
@@ -297,7 +443,6 @@ export class Slider{
 	}
 	slideAnimation(animationData){
 		const _ = this;
-		if (_.dots) _.dotsActiveInactive();
 		if (_.animation === 'opacity'){
 
 		} else {
@@ -314,6 +459,10 @@ export class Slider{
 					if (count >= 1) {
 						animationData['direction'] === 'next'
 								? _.moveToNext(count,animationData['partTime']) : _.moveToPrev(count,animationData['partTime'])
+					} else {
+						if (_.dots['show']){
+							_.dotsActiveInactive();
+						}
 					}
 				}
 			})
@@ -321,17 +470,21 @@ export class Slider{
 	}
 	dotsActiveInactive(){
 		const _ = this;
-		_.dots['prev'] = _.dots['active'];
-		_.dots['prev'].classList.remove('active');
-		_.dots['active'] = _.dots['list'][_.currentPosNext];
-		_.dots['active'].classList.add('active');
+		_.dots['active'].classList.remove('active');
+		_.dots['active'] = _.dots['container'].querySelector(`[data-index='${_.currentPosNext}']`);
+		_.dots['active'].classList.add('active')
 	}
 
 	reInit(){
 		const _ = this;
-		_.acceptSettings();
-		_.sliderFilling();
+		let slidesStyles = _.acceptSettings();
+		_.acceptSlidesSettings(slidesStyles);
+		_.calcSlidesCount();
+		_.calcSlidesCountForMove();
+		_.sliderPrepare();
 		_.setGSliderHeight();
+		_.dotsPrepare();
+		_.arrowsPrepare();
 	}
 	init(){
 		const _ = this;

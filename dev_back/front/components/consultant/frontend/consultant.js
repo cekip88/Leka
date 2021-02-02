@@ -8,13 +8,6 @@ export class frontConsultant extends _front{
 		const _ = this;
 		_.componentName = 'consultant';
 
-		_.cont = document.querySelector('.consultant');
-		if (_.cont){
-			_.chatCont = _.cont.querySelector('.consultant-chat');
-			_.sendForm = _.cont.querySelector('.consultant-form');
-			_.regForm = _.cont.querySelector('.consultant-reg');
-		}
-
 		_.users = {};
 		_.page = 1;
 		_.checkNewMess = true;
@@ -355,7 +348,11 @@ export class frontConsultant extends _front{
 	async init(){
 		super.init();
 		const _ = this;
+		_.cont = document.querySelector('.consultant');
 		if (_.cont){
+			_.chatCont = _.cont.querySelector('.consultant-chat');
+			_.sendForm = _.cont.querySelector('.consultant-form');
+			_.regForm = _.cont.querySelector('.consultant-reg');
 			_.main = await _.getModule({name: 'Consultant', type:'component', module: [{
 					name:'Consultant',
 					'cont': document.querySelector('body'),

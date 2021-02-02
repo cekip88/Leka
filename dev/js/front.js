@@ -230,21 +230,102 @@ class Front extends _front{
     _.articlesLengthCheck();
     _.inputActive();
     new Slider({
-      container: 'main-slider',
+      container: '.main-slider',
+      settings: {
+        0:{
+          dots: true
+        },
+        740:{},
+      }
+    });
+    new Slider({
+      container: '.partners-slider',
       settings: {
         0:{
           dots: true
         }
       },
-      name: 'slider'
+      dots:{
+        class:`control-button`
+      }
     });
     new Slider({
-      name: 'partners',
-      container: 'slider',
+      container: '.retailers-slider',
+      dots: {
+        container: `.retailers-slider-dots`
+      },
+      arrows:{
+        container: '.retailers .pagination',
+        prev: `.retailers-prev`,
+        next: `.retailers-next`
+      },
       settings: {
         0:{
           count: 1,
+          arrows: true
+        },
+        740:{
+          count: 2,
+          moveCount: 1,
           dots: true
+        },
+        1004:{
+          count: 3
+        },
+        1170:{
+          width: 330,
+          padding: '10px 0 20px'
+        }
+      }
+    });
+    new Slider({
+      container: '.services-slider',
+      dots: {
+        container: '.services-slider-dots'
+      },
+      arrows:{
+        container: '.services .pagination',
+        prev: `.services-prev`,
+        next: `.services-next`
+      },
+      settings: {
+        0:{
+          count: 1,
+          arrows: true
+        },
+        740:{
+          count: 2,
+          dots: true
+        },
+        1004:{
+          count: 3
+        },
+        1170:{
+          width: 368,
+          padding: '10px 0 20px',
+        }
+      }
+    });
+    new Slider({
+      container: '.news-slider',
+      dots: {
+        container: `.news-slider-dots`
+      },
+      settings: {
+        0:{
+          count: 1,
+          arrows: true
+        },
+        740:{
+          count: 2,
+          dots: true
+        },
+        1004:{
+          count: 3
+        },
+        1170:{
+          width: 357,
+          padding: '10px 0 20px'
         }
       }
     });
