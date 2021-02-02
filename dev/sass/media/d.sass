@@ -92,7 +92,16 @@ section
 		&:hover
 			&:after
 				background-color: RGB($button-blue)
-
+	&-dots
+		.g-control
+			&-button
+				transition: $transition
+				&:hover
+					border-color: rgba($button-blue,.5)
+	&-arrow
+		transition: $transition
+		&:hover
+			transform: scale(1.05)
 .item-title
 	font-size: 18px
 .corp
@@ -132,12 +141,9 @@ section
 		+w(338px)
 		flex: 0 0 338px
 		box-shadow: 7px 11px 30px 0 rgba(0, 0, 0, 0.3)
-	.button
-		&-arrow
-			&:hover
-				transform: scale(1.05)
-			path
-				stroke: #fff
+	.g-control-button
+		&:hover
+			border-color: rgba($white,.5)
 .why
 	&-item
 		flex-basis: 352px
@@ -168,7 +174,6 @@ section
 		margin: 15px 0
 		&:last-child
 			margin: 15px 0
-
 
 .catalog
 	&-page
@@ -320,6 +325,11 @@ inner .form
 		.title
 			font-size: 24px
 
+.partners
+	.g-control-button
+		transition: $transition
+		&:hover
+			border-color: rgba($button-blue,.5)
 .ab
 	&-photo
 		height: 670px
