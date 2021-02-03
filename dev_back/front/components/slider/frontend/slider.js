@@ -9,7 +9,6 @@ export class Slider{
 		//_.slides - slidesToDefault (массив gSlides)
 
 		_.gsap = gsap;
-		_.tl = _.gsap.timeline();
 
 		_.sliderData = params;
 
@@ -93,6 +92,26 @@ export class Slider{
 		_.setGSliderHeight();
 
 		_.dotsPrepare();
+
+
+		if (_.autoSwitch){
+			_.autoSwap();
+			_.gSlider.addEventListener('mouseenter',()=>{
+				_.auto.pause()
+			})
+			_.gSlider.addEventListener('mouseleave',()=>{
+				_.auto.resume()
+			})
+		}
+	}
+	autoSwap(){
+		const _ = this;
+		if (_.autoSwitch){
+			_.auto = _.gsap.timeline({onComplete: ()=>{
+					_.next();
+					_.autoSwap();
+				}, repeat: 1, repeatDelay: _.autoSwitchTime});
+		}
 	}
 
 	// Приводит слайды к единому виду
@@ -275,6 +294,8 @@ export class Slider{
 		_.animation = 'scroll';
 		_.dots['show'] = false;
 		_.arrows['show'] = false;
+		_.autoSwitchTime = 10;
+		_.autoSwitch = false;
 	}
 	settingsHandler(styles){
 		const _ = this;
@@ -316,6 +337,8 @@ export class Slider{
 		_.animation = _.undefinedCheck(settings['animation']) ? settings['animation'] : _.animation;
 		_.dots['show'] = _.undefinedCheck(settings['dots']) ? settings['dots'] : _.dots['show'];
 		_.arrows['show'] = _.undefinedCheck(settings['arrows']) ? settings['arrows'] : _.arrows['show'];
+		_.autoSwitch = _.undefinedCheck(settings['autoSwitch']) ? settings['autoSwitch'] : _.autoSwitch;
+		_.autoSwitchTime = _.undefinedCheck(settings['autoSwitchTime']) ? parseInt(settings['autoSwitchTime']) : _.autoSwitchTime;
 	}
 
 	acceptSlidesSettings(styles){

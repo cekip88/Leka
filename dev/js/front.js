@@ -233,7 +233,9 @@ class Front extends _front{
       container: '.main-slider',
       settings: {
         0:{
-          dots: true
+          dots: true,
+          autoSwitch: true,
+          animationTime: 0.5
         },
         740:{},
       }
@@ -242,7 +244,8 @@ class Front extends _front{
       container: '.partners-slider',
       settings: {
         0:{
-          dots: true
+          dots: true,
+          autoSwitch: true
         }
       }
     });
@@ -259,7 +262,8 @@ class Front extends _front{
       settings: {
         0:{
           count: 1,
-          arrows: true
+          arrows: true,
+          autoSwitch: true
         },
         740:{
           count: 2,
@@ -288,7 +292,8 @@ class Front extends _front{
       settings: {
         0:{
           count: 1,
-          arrows: true
+          arrows: true,
+          autoSwitch: true
         },
         740:{
           count: 2,
@@ -316,7 +321,8 @@ class Front extends _front{
       settings: {
         0:{
           count: 1,
-          arrows: true
+          arrows: true,
+          autoSwitch: true
         },
         740:{
           count: 2,
