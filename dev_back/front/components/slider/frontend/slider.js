@@ -17,9 +17,9 @@ export class Slider{
 		_.init();
 
 		MainEventBus
-			.on(_,'next')
-			.on(_,'prev')
-			.on(_,'dot');
+			.add(_.componentName,'next',_.next.bind(_),`${_.sliderData['container'].substring(1,_.sliderData['container'].length)}`)
+			.add(_.componentName,'prev',_.prev.bind(_),`${_.sliderData['container'].substring(1,_.sliderData['container'].length)}`)
+			.add(_.componentName,'dot',_.dot.bind(_),`${_.sliderData['container'].substring(1,_.sliderData['container'].length)}`)
 	}
 	// вспомогательные методы
 	el(tag,params = {}){
@@ -92,6 +92,7 @@ export class Slider{
 		_.setGSliderHeight();
 
 		_.dotsPrepare();
+		_.resize();
 
 
 		if (_.autoSwitch){
@@ -509,14 +510,17 @@ export class Slider{
 		_.dotsPrepare();
 		_.arrowsPrepare();
 	}
-	init(){
+	resize(){
 		const _ = this;
-		_.swipeAccess = true;
-		_.sliderInit();
 		window.addEventListener('resize',function (){
 			if (window.innerWidth >= _.resolutions['next'] || window.innerWidth < _.resolutions['current'])	{
 				_.reInit();
 			}
 		})
+	}
+	init(){
+		const _ = this;
+		_.swipeAccess = true;
+		_.sliderInit();
 	}
 }

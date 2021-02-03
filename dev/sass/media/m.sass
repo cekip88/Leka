@@ -929,13 +929,15 @@ aside
 				display: none
 			&-dots
 				@extend %dfc
-				+w(100%)
+				+w(273px)
 				.dot
 					+wh(77px)
+					+bdrs(8px)
 					margin: 0 7px
 					img
 						max-height: 100%
-
+					&.active
+						border: 3px solid rgba($button-blue,.3)
 			&-body
 				@extend %dfa
 				+w(100%)

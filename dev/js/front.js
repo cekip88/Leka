@@ -337,6 +337,36 @@ class Front extends _front{
         }
       }
     });
+    new Slider({
+      container: '.product-slider .slider-body',
+      name: 'productSlider',
+      arrows: {
+        container: `.product-slider`,
+        next: `.product-slider .slider-arrow-next`,
+        prev: `.product-slider .slider-arrow-prev`,
+      },
+      dots: {
+        container: `.product-slider .slider-dots`,
+        list: `.product-slider .dot`
+      },
+      settings: {
+        0: {
+          dots: true
+        },
+        740: {
+          arrows: true
+        }
+      }
+    });
+    new Slider({
+      container: `.product-slider .slider-dots`,
+      name: `productSlider`,
+      settings: {
+        0: {
+          count: 3
+        }
+      }
+    });
   }
 }
 
