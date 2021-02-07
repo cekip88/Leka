@@ -657,6 +657,7 @@
                     <button class="button button-transparent">Отправить</button>
                 </div>
             </form>
+	        <!-- asfasdf-->
         </div>
     </section>
     <section class="map">
