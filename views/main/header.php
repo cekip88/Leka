@@ -8,6 +8,10 @@
 	<link rel="stylesheet" property="stylesheet" href="front.css"/>
 </head>
 <body>
+<?php
+global $Languager;
+global $lang;
+?>
 <div class="set">
 	<header>
 		<div class="section head"><a class="head-logo" href="./index.php">
@@ -18,13 +22,22 @@
 			<button class="head-burger" data-click-action="front:headBurgerClick"><span></span></button>
 			<nav class="head-menu">
 				<ul class="head-list">
-					<li class="head-item"><a class="item-link" href="./catalog.php" data-path="product-card catalog">Каталог</a></li>
-					<li class="head-item"><a class="item-link" href="./news.php" data-path="news article">Новости</a></li>
-					<li class="head-item"><a class="item-link" href="./services.php" data-path="services">Услуги</a></li>
-					<li class="head-item"><a class="item-link" href="./contacts.php" data-path="contacts">Контакты</a></li>
-					<li class="head-item"><a class="item-link" href="./about.php" data-path="about">О компании</a></li>
+					<li class="head-item"><a class="item-link" href="./catalog.php" data-path="product-card catalog"><?=$Languager->getTranslateToFrontFromId(165,$lang);?></a></li>
+					<li class="head-item"><a class="item-link" href="./news.php" data-path="news article"><?=$Languager->getTranslateToFrontFromId(140,$lang);?></a></li>
+					<li class="head-item"><a class="item-link" href="./services.php" data-path="services"><?=$Languager->getTranslateToFrontFromId(144,$lang);?></a></li>
+					<li class="head-item"><a class="item-link" href="./contacts.php" data-path="contacts"><?=$Languager->getTranslateToFrontFromId(146,$lang);?></a></li>
+					<li class="head-item"><a class="item-link" href="./about.php" data-path="about"><?=$Languager->getTranslateToFrontFromId(148,$lang);?></a></li>
 				</ul>
-			</nav><a class="head-login" href="./login.php">Корпоративный вход</a>
-			<div class="head-lang"><a class="lang-link active" href="#">Ru</a><span>|</span><a class="lang-link" href="#">En</a></div>
+			</nav><a class="head-login" href="./login.php"><?=$Languager->getTranslateToFrontFromId(129,$lang);?></a>
+			<?
+
+				global $lang;
+				if($lang == 'ru'){
+            $activeRu = 'active';
+				}else{
+            $activeEn = 'active';
+				}
+			?>
+			<div class="head-lang"><a class="lang-link <?=$activeRu?>" href="?lang=ru">Ru</a><span>|</span><a class="lang-link <?=$activeEn?>" href="?lang=en">En</a></div>
 		</div>
 	</header>

@@ -10,11 +10,10 @@ $currentRoute = Router::getCurrentRoute();
 
 $currentModule = $currentRoute['module'];
 $urlToCtr = CTRL_DIR.$currentModule.".controller.php";
-
-require_once $urlToCtr;
-
-$Module = new $currentModule($currentRoute);
-$Module->doRender();
-
+if(file_exists($urlToCtr)){
+    require_once $urlToCtr;
+    $Module = new $currentModule($currentRoute);
+    $Module->doRender();
+}
 #print_r(Dater::getData());
 

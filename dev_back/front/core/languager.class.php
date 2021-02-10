@@ -261,7 +261,6 @@ class Languager{
 		$langId = $this->getLangId($lang);
 		if ($langId == 1) {
 			$outWord = $this->getDefaultTranslateFromId($wordId);
-			echo $outWord;
 			return $outWord['translate'];
 		} else {
 			$outWord = $this->getLangTranslateFromId($wordId, $langId);

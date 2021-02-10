@@ -347,7 +347,8 @@ class Front extends _front{
       },
       dots: {
         container: `.product-slider .slider-dots`,
-        list: `.product-slider .dot`
+        list: `.product-slider .dot`,
+        role: 'dots',
       },
       settings: {
         0: {

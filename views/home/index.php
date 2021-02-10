@@ -1,5 +1,6 @@
 <?php
-	#include_once 'partName'; // slider.php
+global $Languager;
+global $lang;
 ?>
 
 <main>
@@ -131,264 +132,109 @@
             </div>
         </div>
     </section>
-    <section class="consult">
-        <div class="section">
-            <form class="consult-form form">
-                <div class="consult-title">
-                    <h2 class="title">Получите бесплатную консультацию</h2>
-                </div>
-                <div class="consult-block">
-                    <div class="form-block"><span class="block-title">Ваш номер телефона:</span>
-                        <input class="block-input" type="text" placeholder="+9 (999) 999-99-99">
-                    </div>
-                </div>
-                <div class="consult-button">
-                    <button class="button button-transparent">Отправить</button>
-                </div>
-            </form>
-        </div>
-    </section>
+		<?php include_once ROOT_DIR.'/views/parts/consultation.php'; ?>
     <section class="about main-block">
         <div class="section">
             <h1 class="title">Leka.kz</h1>
             <div class="about-row">
                 <div class="about-img"><img src="img/about.png" alt=""/>
                 </div>
-                <p class="about-desc">Производственно-монтажная компания&nbsp;<strong>«ЛЕКА»</strong>&nbsp;существует на
-                    рынке вентиляционного оборудования Республики Казахстан
-                    с 1989 года. За это время мы освоили основы создания
-                    необходимого микроклимата и передовые технологии
-                    климатической отрасли при изготовлении систем вентиляции
-                    и кондиционирования воздуха.
-                </p>
+                <p class="about-desc"><?=$Languager->getTranslateToFrontFromId(115,$lang);?>&nbsp;<strong><?=$Languager->getTranslateToFrontFromId(116,$lang);?></strong>&nbsp;<?=$Languager->getTranslateToFrontFromId(117,$lang);?></p>
             </div>
             <ul class="about-list">
                 <li class="about-item">
                     <h3 class="item-title">
-                        <div class="title-text"><span class="title">Опыт</span><span>28 лет на рынке</span></div>
+                        <div class="title-text"><span class="title"><?=$Languager->getTranslateToFrontFromId(118,$lang);?></span><span><?=$Languager->getTranslateToFrontFromId(119,$lang);?></span></div>
                     </h3>
-                    <p class="item-text">
-                        За четверть века мы абсолютно
-                        хорошо поняли свое предназначение
-                        — проектирование и производство.
-                    </p>
+                    <p class="item-text"><?=$Languager->getTranslateToFrontFromId(121,$lang);?></p>
                 </li>
                 <li class="about-item">
                     <h3 class="item-title">
-                        <div class="title-text"><span class="title">Штат</span><span>28 лет на рынке</span></div>
+                        <div class="title-text"><span class="title"><?=$Languager->getTranslateToFrontFromId(120,$lang);?></span><span><?=$Languager->getTranslateToFrontFromId(123,$lang);?></span></div>
                     </h3>
-                    <p class="item-text">
-                        За четверть века мы абсолютно
-                        хорошо поняли свое предназначение
-                        — проектирование и производство.
-                    </p>
+                    <p class="item-text"><?=$Languager->getTranslateToFrontFromId(126,$lang);?></p>
                 </li>
                 <li class="about-item">
                     <h3 class="item-title">
-                        <div class="title-text"><span class="title">Производство</span><span>28 лет на рынке</span></div>
+                        <div class="title-text"><span class="title"><?=$Languager->getTranslateToFrontFromId(122,$lang);?></span><span><?=$Languager->getTranslateToFrontFromId(124,$lang);?></span></div>
                     </h3>
-                    <p class="item-text">
-                        За четверть века мы абсолютно
-                        хорошо поняли свое предназначение
-                        — проектирование и производство.
-                    </p>
+                    <p class="item-text"><?=$Languager->getTranslateToFrontFromId(127,$lang);?></p>
                 </li>
             </ul>
         </div>
     </section>
-		<section class="retailers main-block">
-			<div class="section">
-				<h2 class="title">Розничные предложения</h2>
-			</div>
-			<div class="multiple-slider retailers-slider">
-				<a class="slide" href="#">
-					<div class="slide-inner">
-						<div class="slide-photo"><img src="img/dveri.png" alt=""/>
-						</div>
-						<h4 class="slide-title">Противопожарные входные двери</h4><span class="slide-code">DR-84389-94</span>
-						<div class="slide-icon"><img src="img/fire-shield.svg" alt=""/><span></span>
-						</div>
-						<div class="slide-prices">
-							<div class="old-price">999999 ₸</div>
-							<div class="current-price">664499 ₸</div>
-						</div>
-					</div></a>
-				<a class="slide" href="#">
-					<div class="slide-inner">
-						<div class="slide-photo"><img src="img/dveri.png" alt=""/>
-						</div>
-						<h4 class="slide-title">Противопожарные входные двери</h4><span class="slide-code">DR-84389-94</span>
-						<div class="slide-icon"><img src="img/fire-shield.svg" alt=""/><span></span>
-						</div>
-						<div class="slide-prices">
-							<div class="old-price">999999 ₸</div>
-							<div class="current-price">664499 ₸</div>
-						</div>
-					</div></a>
-				<a class="slide" href="#">
-					<div class="slide-inner">
-						<div class="slide-photo"><img src="img/dveri.png" alt=""/>
-						</div>
-						<h4 class="slide-title">Противопожарные входные двери</h4><span class="slide-code">DR-84389-94</span>
-						<div class="slide-icon"><img src="img/fire-shield.svg" alt=""/><span></span>
-						</div>
-						<div class="slide-prices">
-							<div class="old-price">999999 ₸</div>
-							<div class="current-price">664499 ₸</div>
-						</div>
-					</div></a>
-				<a class="slide" href="#">
-					<div class="slide-inner">
-						<div class="slide-photo"><img src="img/dveri.png" alt=""/>
-						</div>
-						<h4 class="slide-title">Противопожарные входные двери</h4><span class="slide-code">DR-84389-94</span>
-						<div class="slide-icon"><img src="img/fire-shield.svg" alt=""/><span></span>
-						</div>
-						<div class="slide-prices">
-							<div class="old-price">999999 ₸</div>
-							<div class="current-price">664499 ₸</div>
-						</div>
-					</div></a>
-				<a class="slide" href="#">
-					<div class="slide-inner">
-						<div class="slide-photo"><img src="img/dveri.png" alt=""/>
-						</div>
-						<h4 class="slide-title">Противопожарные входные двери</h4><span class="slide-code">DR-84389-94</span>
-						<div class="slide-icon"><img src="img/fire-shield.svg" alt=""/><span></span>
-						</div>
-						<div class="slide-prices">
-							<div class="old-price">999999 ₸</div>
-							<div class="current-price">664499 ₸</div>
-						</div>
-					</div></a>
-				<a class="slide" href="#">
-					<div class="slide-inner">
-						<div class="slide-photo"><img src="img/dveri.png" alt=""/>
-						</div>
-						<h4 class="slide-title">Противопожарные входные двери</h4><span class="slide-code">DR-84389-94</span>
-						<div class="slide-icon"><img src="img/fire-shield.svg" alt=""/><span></span>
-						</div>
-						<div class="slide-prices">
-							<div class="old-price">999999 ₸</div>
-							<div class="current-price">664499 ₸</div>
-						</div>
-					</div></a>
-				<a class="slide" href="#">
-					<div class="slide-inner">
-						<div class="slide-photo"><img src="img/dveri.png" alt=""/>
-						</div>
-						<h4 class="slide-title">Противопожарные входные двери</h4><span class="slide-code">DR-84389-94</span>
-						<div class="slide-icon"><img src="img/fire-shield.svg" alt=""/><span></span>
-						</div>
-						<div class="slide-prices">
-							<div class="old-price">999999 ₸</div>
-							<div class="current-price">664499 ₸</div>
-						</div>
-					</div></a>
-			</div>
-			<div class="section">
-				<div class="multiple-slider-control">
-					<button class="multiple-slider-arrow retailers-prev">
-						<svg width="53" height="19" viewBox="0 0 53 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-							<path d="M52.3211 9.35676H0.999999M0.999999 9.35676L10.4431 0.5448M0.999999 9.35676L10.4431 18.1687"></path>
-						</svg>
-					</button>
-					<div class="multiple-slider-dots"></div>
-					<button class="multiple-slider-arrow retailers-next">
-						<svg width="53" height="19" viewBox="0 0 53 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-							<path d="M0.178864 9.35676H51.5M51.5 9.35676L42.0569 0.5448M51.5 9.35676L42.0569 18.1687"></path>
-						</svg>
-					</button>
-				</div>
-			</div>
-		</section>
+		<?php include_once ROOT_DIR.'/views/parts/retailers.php'; ?>
     <section class="corp main-block">
         <div class="section">
             <div class="corp-info">
-                <h2 class="title">Корпоративный вход</h2><span class="corp-link">WWW.LEKA.kz/corplogin</span>
-                <h3 class="corp-subtitle">Масштабное сотрудничество</h3>
-                <p class="corp-desc">Для крупных клиентов нашей компании мы предусмотрели специализированный вход на сайт. Для перехода в соответствующую версию просмотра и связи, вам необходимо кликнуть на пункт меню "Корпоративный вход". Далее войти или зарегистрироваться, чтобы портал отразил для вас исключительно оптовые предложения и всю промышленную мощь компании<strong>&nbsp;«ЛЕКА».</strong></p>
+                <h2 class="title"><?=$Languager->getTranslateToFrontFromId(129,$lang);?></h2><span class="corp-link">WWW.LEKA.kz/corplogin</span>
+                <h3 class="corp-subtitle"><?=$Languager->getTranslateToFrontFromId(130,$lang);?></h3>
+                <p class="corp-desc"><?=$Languager->getTranslateToFrontFromId(131,$lang);?><strong>&nbsp;<?=$Languager->getTranslateToFrontFromId(116,$lang);?>.</strong></p>
                 <ul class="corp-list">
                     <li class="corp-item">
-                        <h5 class="plus-title item-title"><img src="img/Users.svg" alt=""/><span>Личный кабинет</span>
+                        <h5 class="plus-title item-title"><img src="img/Users.svg" alt=""/><span><?=$Languager->getTranslateToFrontFromId(134,$lang);?></span>
                         </h5>
-                        <p class="plus-desc">Удобный личный кабинет для хранения истории заказов, рассчета сметы и отслеживания производства.</p>
+                        <p class="plus-desc"><?=$Languager->getTranslateToFrontFromId(135,$lang);?></p>
                     </li>
                     <li class="corp-item">
-                        <h5 class="plus-title item-title"><img src="img/ChatText.svg" alt=""/><span>Поддержка</span>
+                        <h5 class="plus-title item-title"><img src="img/ChatText.svg" alt=""/><span><?=$Languager->getTranslateToFrontFromId(136,$lang);?></span>
                         </h5>
-                        <p class="plus-desc">Предлагаем плановое и аварийное обслуживание. Наш инженер аккуратно демонтирует оборудование и лично отвезет его в сервисный центр. По окончании ремонта мы заново установим и запустим систему вентиляции.</p>
+                        <p class="plus-desc"><?=$Languager->getTranslateToFrontFromId(137,$lang);?></p>
                     </li>
                     <li class="corp-item">
-                        <h5 class="plus-title item-title"><img src="img/PlusMinus.svg" alt=""/><span>Калькулятор</span>
+                        <h5 class="plus-title item-title"><img src="img/PlusMinus.svg" alt=""/><span><?=$Languager->getTranslateToFrontFromId(138,$lang);?></span>
                         </h5>
-                        <p class="plus-desc">Многофункциональность онлайн сервиса является несомненным достоинством сайта. Онлайн калькулятор позволяет производить расчеты не выходя из офиса.</p>
+                        <p class="plus-desc"><?=$Languager->getTranslateToFrontFromId(139,$lang);?></p>
                     </li>
                 </ul>
             </div>
             <div class="corp-img">
-                <h3 class="img-title"><span>Корпоративный вход</span></h3>
+                <h3 class="img-title"><span><?=$Languager->getTranslateToFrontFromId(129,$lang);?></span></h3>
                 <ul class="img-pluses">
                     <li class="img-plus"><a class="plus-title" href="./news.php">
                             <svg width="7" height="12" viewBox="0 0 7 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M1.25 1.625L5.625 6L1.25 10.375" stroke="#2F3035" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                            </svg><span>Новости</span></a>
-                        <p class="plus-desc">Описание в двух-трех словах</p>
+                            </svg><span><?=$Languager->getTranslateToFrontFromId(140,$lang);?></span></a>
+                        <p class="plus-desc"><?=$Languager->getTranslateToFrontFromId(141,$lang);?></p>
                     </li>
                     <li class="img-plus"><a class="plus-title" href="./news.php">
                             <svg width="7" height="12" viewBox="0 0 7 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M1.25 1.625L5.625 6L1.25 10.375" stroke="#2F3035" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                            </svg><span>Статьи</span></a>
-                        <p class="plus-desc">Описание в двух-трех словах</p>
+                            </svg><span><?=$Languager->getTranslateToFrontFromId(142,$lang);?></span></a>
+                        <p class="plus-desc"><?=$Languager->getTranslateToFrontFromId(143,$lang);?></p>
                     </li>
                     <li class="img-plus"><a class="plus-title" href="./services.php">
                             <svg width="7" height="12" viewBox="0 0 7 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M1.25 1.625L5.625 6L1.25 10.375" stroke="#2F3035" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                            </svg><span>Услуги</span></a>
-                        <p class="plus-desc">Описание в двух-трех словах</p>
+                            </svg><span><?=$Languager->getTranslateToFrontFromId(144,$lang);?></span></a>
+                        <p class="plus-desc"><?=$Languager->getTranslateToFrontFromId(145,$lang);?></p>
                     </li>
                     <li class="img-plus"><a class="plus-title" href="./contacts.php">
                             <svg width="7" height="12" viewBox="0 0 7 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M1.25 1.625L5.625 6L1.25 10.375" stroke="#2F3035" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                            </svg><span>Контакты</span></a>
-                        <p class="plus-desc">Описание в двух-трех словах</p>
+                            </svg><span><?=$Languager->getTranslateToFrontFromId(146,$lang);?></span></a>
+                        <p class="plus-desc"><?=$Languager->getTranslateToFrontFromId(147,$lang);?></p>
                     </li>
                     <li class="img-plus"><a class="plus-title" href="./about.php">
                             <svg width="7" height="12" viewBox="0 0 7 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M1.25 1.625L5.625 6L1.25 10.375" stroke="#2F3035" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                            </svg><span>О компании</span></a>
-                        <p class="plus-desc">Описание в двух-трех словах</p>
+                            </svg><span><?=$Languager->getTranslateToFrontFromId(148,$lang);?></span></a>
+                        <p class="plus-desc"><?=$Languager->getTranslateToFrontFromId(149,$lang);?></p>
                     </li>
                     <li class="img-plus"><a class="plus-title" href="./login.php">
                             <svg width="7" height="12" viewBox="0 0 7 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M1.25 1.625L5.625 6L1.25 10.375" stroke="#2F3035" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                            </svg><span>Корпоративный вход</span></a>
-                        <p class="plus-desc">Описание в двух-трех словах</p>
+                            </svg><span><?=$Languager->getTranslateToFrontFromId(129,$lang);?></span></a>
+                        <p class="plus-desc"><?=$Languager->getTranslateToFrontFromId(150,$lang);?></p>
                     </li>
                 </ul><img src="img/iPhone.png" alt=""/>
             </div>
         </div>
     </section>
-    <section class="consult">
-        <div class="section">
-            <form class="consult-form form">
-                <div class="consult-title">
-                    <h2 class="title">Получите бесплатную консультацию</h2>
-                </div>
-                <div class="consult-block">
-                    <div class="form-block"><span class="block-title">Ваш номер телефона:</span>
-                        <input class="block-input" type="text" placeholder="+9 (999) 999-99-99">
-                    </div>
-                </div>
-                <div class="consult-button">
-                    <button class="button button-transparent">Отправить</button>
-                </div>
-            </form>
-        </div>
-    </section>
+    <?php include ROOT_DIR.'/views/parts/consultation.php'; ?>
     <section class="services main-block">
         <div class="section">
-            <h2 class="title">Услуги</h2>
+            <h2 class="title"><?=$Languager->getTranslateToFrontFromId(144,$lang);?></h2>
         </div>
         <div class="multiple-slider services-slider">
 	        <a class="slide" href="./laser.php">
@@ -435,44 +281,38 @@
     </section>
     <section class="why main-block">
         <div class="section">
-            <h2 class="title">Почему нас рекомендуют</h2>
+            <h2 class="title"><?=$Languager->getTranslateToFrontFromId(151,$lang);?></h2>
             <ul class="why-list">
                 <li class="why-item">
-                    <h5 class="item-title"><img src="img/why-icon-1.svg" alt=""/><span><span>Заказы любой сложности</span><span>и объёма</span></span>
-                    </h5>
-                    <p class="item-desc">Опыт и профессионализм вкупе с современным оборудованием позволяют нам воплощать в жизнь проекты любой задумки и сложности.</p>
+                    <h5 class="item-title"><img src="img/why-icon-1.svg" alt=""/><span><?=$Languager->getTranslateToFrontFromId(152,$lang);?></span></h5>
+                    <p class="item-desc"><?=$Languager->getTranslateToFrontFromId(153,$lang);?></p>
                 </li>
                 <li class="why-item">
-                    <h5 class="item-title"><img src="img/why-icon-2.svg" alt=""/><span><span>Профессиональное</span><span>проектирование</span></span>
-                    </h5>
-                    <p class="item-desc">Если Вам необходим проект, мы поможем составить его. Также, наша компания проводит аудит существующих проектов.</p>
+                    <h5 class="item-title"><img src="img/why-icon-2.svg" alt=""/><span><?=$Languager->getTranslateToFrontFromId(154,$lang);?></span></h5>
+                    <p class="item-desc"><?=$Languager->getTranslateToFrontFromId(155,$lang);?></p>
                 </li>
                 <li class="why-item">
-                    <h5 class="item-title"><img src="img/why-icon-3.svg" alt=""/><span><span>Подробные и бесплатные</span><span>консультации</span></span>
-                    </h5>
-                    <p class="item-desc">Специалисты нашей компании имеют большой опыт в реализации самых разных проектов. Поможем найти самое оптимальное решение.</p>
+                    <h5 class="item-title"><img src="img/why-icon-3.svg" alt=""/><?=$Languager->getTranslateToFrontFromId(156,$lang);?></span></h5>
+                    <p class="item-desc"><?=$Languager->getTranslateToFrontFromId(158,$lang);?></p>
                 </li>
                 <li class="why-item">
-                    <h5 class="item-title"><img src="img/why-icon-4.svg" alt=""/><span><span>Гарантия соблюдения</span><span>сроков</span></span>
-                    </h5>
-                    <p class="item-desc">Наши менеджеры используют специальную CRM-систему, которая не даёт нам пропустить ни один этап работ без отчета.</p>
+                    <h5 class="item-title"><img src="img/why-icon-4.svg" alt=""/><span><?=$Languager->getTranslateToFrontFromId(157,$lang);?></span></h5>
+                    <p class="item-desc"><?=$Languager->getTranslateToFrontFromId(159,$lang);?></p>
                 </li>
                 <li class="why-item">
-                    <h5 class="item-title"><img src="img/why-icon-5.svg" alt=""/><span><span>Без скрытых</span><span>доплат</span></span>
-                    </h5>
-                    <p class="item-desc">Фиксируем стоимость услуг в коммерческий предложении и договоре.</p>
+                    <h5 class="item-title"><img src="img/why-icon-5.svg" alt=""/><span><?=$Languager->getTranslateToFrontFromId(160,$lang);?></span></h5>
+                    <p class="item-desc"><?=$Languager->getTranslateToFrontFromId(161,$lang);?></p>
                 </li>
                 <li class="why-item">
-                    <h5 class="item-title"><img src="img/why-icon-6.svg" alt=""/><span><span>Контроль качества</span><span>на всех этапах</span></span>
-                    </h5>
-                    <p class="item-desc">Проверяем качество выполненных работ по письменному чек-листу.</p>
+                    <h5 class="item-title"><img src="img/why-icon-6.svg" alt=""/><span><?=$Languager->getTranslateToFrontFromId(162,$lang);?></span></h5>
+                    <p class="item-desc"><?=$Languager->getTranslateToFrontFromId(163,$lang);?></p>
                 </li>
             </ul>
         </div>
     </section>
     <section class="news main-block">
         <div class="section">
-            <h2 class="title">Новости и акции</h2>
+            <h2 class="title"><?=$Languager->getTranslateToFrontFromId(164,$lang);?></h2>
         </div>
         <div class="multiple-slider news-slider">
             <div class="slide"><img class="slide-img" src="img/news-slide-1.jpg" alt=""/>
@@ -548,7 +388,7 @@
     </section>
     <section class="projects main-block">
         <div class="section">
-            <h2 class="title">Проекты</h2>
+            <h2 class="title"><?=$Languager->getTranslateToFrontFromId(177,$lang);?></h2>
             <div class="projects-cont">
                 <ul class="projects-list">
                     <li class="projects-item">
@@ -607,13 +447,14 @@
                         <div class="item-bgc"><img src="img/projects-bgc-1.jpg" alt=""/>
                         </div>
                     </li>
-                </ul><a class="button" href="./projects.php">Все проекты</a>
+                </ul>
+	              <a class="button" href="./projects.php"><?=$Languager->getTranslateToFrontFromId(179,$lang);?></a>
             </div>
         </div>
     </section>
     <section class="partners main-block">
         <div class="section">
-            <h2 class="title">Наши партнеры</h2>
+            <h2 class="title"><?=$Languager->getTranslateToFrontFromId(178,$lang);?></h2>
             <div class="partners-slider">
                 <div class="slide partners-slide">
                     <div class="slide-logo"><img src="img/BI_Group.png" alt=""/>
@@ -642,24 +483,7 @@
             </div>
         </div>
     </section>
-    <section class="consult">
-        <div class="section">
-            <form class="consult-form form">
-                <div class="consult-title">
-                    <h2 class="title">Получите бесплатную консультацию</h2>
-                </div>
-                <div class="consult-block">
-                    <div class="form-block"><span class="block-title">Ваш номер телефона:</span>
-                        <input class="block-input" type="text" placeholder="+9 (999) 999-99-99">
-                    </div>
-                </div>
-                <div class="consult-button">
-                    <button class="button button-transparent">Отправить</button>
-                </div>
-            </form>
-	        <!-- asfasdf-->
-        </div>
-    </section>
+    <?php include ROOT_DIR.'/views/parts/consultation.php'; ?>
     <section class="map">
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2574.640427672221!2d73.05544671587883!3d49.81162734106813!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4243412ec833c1e5%3A0x79512b568707346!2z0KLQntCeICLQm9CV0JrQkCI!5e0!3m2!1sru!2skz!4v1608094159948!5m2!1sru!2skz" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
     </section>
@@ -685,60 +509,24 @@
 							</defs>
 						</svg></a></div>
 				<div class="right-bottom right-half"><a class="link" href="./inner.php">
-						<svg width="46" height="46" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
-							<circle cx="23" cy="19" r="19" fill="white"></circle>
-							<path d="M30.5625 12.125H15.4375C15.0578 12.125 14.75 12.4328 14.75 12.8125V25.1875C14.75 25.5672 15.0578 25.875 15.4375 25.875H30.5625C30.9422 25.875 31.25 25.5672 31.25 25.1875V12.8125C31.25 12.4328 30.9422 12.125 30.5625 12.125Z" stroke="#257BE1" stroke-linecap="round" stroke-linejoin="round"></path>
-							<path d="M14.75 14.875H31.25" stroke="#257BE1" stroke-linecap="round" stroke-linejoin="round"></path>
-							<path d="M26.4375 17.625C26.4375 18.5367 26.0753 19.411 25.4307 20.0557C24.786 20.7003 23.9117 21.0625 23 21.0625C22.0883 21.0625 21.214 20.7003 20.5693 20.0557C19.9247 19.411 19.5625 18.5367 19.5625 17.625" stroke="#257BE1" stroke-linecap="round" stroke-linejoin="round"></path>
-							<defs>
-								<filter id="filter0_d" x="0" y="0" width="46" height="46" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-									<feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
-									<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"></feColorMatrix>
-									<feOffset dy="4"></feOffset>
-									<feGaussianBlur stdDeviation="2"></feGaussianBlur>
-									<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"></feColorMatrix>
-									<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"></feBlend>
-									<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"></feBlend>
-								</filter>
-							</defs>
-						</svg></a>
-					<div class="consultant">
-						<div class="consultant-head">
-							<button class="consultant-icon" data-click-action="consultant:showHide">
-								<svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-									<path d="M19.3924 18.2089C19.3435 15.219 16.2866 14.3357 14.0544 13.6907C13.794 13.6154 13.5435 13.543 13.3088 13.4708V12.2373C13.7651 11.9513 14.165 11.5832 14.4876 11.1538H15.8473C16.5127 11.1538 17.054 10.6124 17.054 9.94705V8.48628C17.1347 8.29824 17.1795 8.0913 17.1795 7.87401V7.4197C17.1795 7.20262 17.1347 6.99581 17.054 6.80791V6.05432C17.054 2.71598 14.3381 0 10.9998 0C7.66217 0 4.94684 2.71598 4.94684 6.05436V6.78638C4.94684 6.79214 4.94748 6.79768 4.9477 6.8034C4.8658 6.99255 4.82016 7.20086 4.82016 7.41974V7.87405C4.82016 8.73287 5.51832 9.43159 6.37645 9.43159H6.73155C6.9775 10.611 7.70157 11.6169 8.69085 12.2371V13.4708C8.45611 13.543 8.20568 13.6154 7.94525 13.6907C5.7131 14.3357 2.65612 15.2191 2.60722 18.2089C2.60718 18.2113 2.60718 18.2136 2.60718 18.216V21.5703C2.60718 21.8076 2.79959 22 3.03687 22H4.31081C4.54808 22 4.7405 21.8076 4.7405 21.5703C4.7405 21.333 4.54808 21.1406 4.31081 21.1406H3.46651V18.2196C3.4846 17.1764 3.96379 16.3944 4.97446 15.7587C5.64139 15.3392 6.45672 15.0403 7.26041 14.7902L8.29858 16.813C8.4143 17.0384 8.71057 17.115 8.92112 16.973L9.38402 16.6607L9.78144 18.1545L9.10051 21.1406H8.16929C7.93202 21.1406 7.7396 21.333 7.7396 21.5703C7.7396 21.8076 7.93202 22 8.16929 22H18.9628C19.2001 22 19.3925 21.8076 19.3925 21.5703V18.2159C19.3925 18.2136 19.3925 18.2113 19.3924 18.2089V18.2089ZM13.8158 14.5162C13.8442 14.5244 13.8729 14.5328 13.9015 14.541L13.1587 15.9897L11.7686 15.0523L12.9464 14.2579C13.22 14.344 13.511 14.4281 13.8158 14.5162ZM11.0001 15.5706L11.8617 16.1517L11.4453 17.7169H10.5543L10.138 16.1521L11.0001 15.5706ZM11 14.5341L9.55018 13.5564V12.6519C10.004 12.8123 10.4917 12.9004 10.9998 12.9004C11.5078 12.9004 11.9956 12.8126 12.4494 12.6522V13.5564L11 14.5341ZM14.5005 6.13295C14.4946 6.12922 14.4887 6.12548 14.4828 6.12174C13.6012 5.56048 12.8397 5.07575 11.6465 5.41713C11.6354 5.42031 11.6244 5.42392 11.6136 5.42796C11.3607 5.52297 11.1307 5.61153 10.9082 5.69716C9.54937 6.22022 8.80747 6.50588 7.49915 6.4691V6.125C7.49915 4.19467 9.06953 2.62424 10.9998 2.62424C12.93 2.62424 14.5004 4.19467 14.5004 6.125V6.13295H14.5005ZM16.1946 9.94705C16.1946 10.1386 16.0388 10.2944 15.8473 10.2944H14.991C15.1119 10.0203 15.2056 9.7316 15.2681 9.43155H15.6232C15.825 9.43155 16.0176 9.39253 16.1947 9.32228V9.94705H16.1946ZM16.3201 7.87401C16.3201 8.25897 16.0075 8.57217 15.6232 8.57217H15.3595C15.3595 8.56151 15.3599 6.72274 15.3599 6.72274H15.6232C16.0075 6.72274 16.3202 7.03539 16.3202 7.4197V7.87401H16.3201ZM6.37645 8.57221C5.99218 8.57221 5.67954 8.25901 5.67954 7.87405V7.41974C5.67954 7.03543 5.99214 6.72279 6.37645 6.72279H6.63981C6.63981 6.72279 6.64015 8.56156 6.64024 8.57221H6.37645ZM6.64785 5.86337H6.37641C6.17553 5.86337 5.98368 5.90204 5.80725 5.97165C5.85163 3.14515 8.1637 0.859378 10.9998 0.859378C13.8368 0.859378 16.1495 3.14541 16.1936 5.97212C16.0168 5.90221 15.8245 5.86337 15.6232 5.86337H15.3518C15.216 3.58051 13.3161 1.76486 10.9998 1.76486C8.68354 1.76486 6.78363 3.58056 6.64785 5.86337ZM7.52501 8.95829C7.52497 8.95786 7.52489 8.95743 7.52484 8.957C7.50856 8.82023 7.49919 8.68135 7.49919 8.54029V7.32843C8.96929 7.36427 9.84624 7.02688 11.2169 6.49922C11.4328 6.41612 11.6559 6.33022 11.899 6.23883C12.7107 6.01225 13.1777 6.30964 14.0214 6.84671C14.1678 6.93991 14.3283 7.04205 14.5005 7.14693V8.54029C14.5005 9.17928 14.3276 9.77826 14.0273 10.2945H10.9998C10.7626 10.2945 10.5701 10.4868 10.5701 10.7241C10.5701 10.9615 10.7626 11.1538 10.9998 11.1538H13.3255C12.7066 11.7052 11.8919 12.0411 10.9998 12.0411C9.21107 12.041 7.73234 10.6921 7.52501 8.95829V8.95829ZM8.84201 15.9897L8.09839 14.5409C8.12684 14.5327 8.15554 14.5244 8.18381 14.5162C8.48864 14.4281 8.77962 14.3439 9.05333 14.2578L10.2316 15.0524L8.84201 15.9897ZM9.98198 21.1406L10.5667 18.5762H11.433L12.0187 21.1406H9.98198ZM18.5331 21.1406H12.9002L12.2182 18.1544L12.6158 16.6601L13.0798 16.973C13.2905 17.115 13.5867 17.0384 13.7024 16.8128L14.7394 14.7903C15.5431 15.0404 16.3584 15.3392 17.0252 15.7587C18.0359 16.3944 18.5151 17.1764 18.5332 18.2196V21.1406H18.5331Z" fill="black"></path>
-									<path d="M16.8361 18.9921H14.6707C14.4334 18.9921 14.241 19.1844 14.241 19.4218C14.241 19.6591 14.4334 19.8514 14.6707 19.8514H16.8361C17.0734 19.8514 17.2658 19.6591 17.2658 19.4218C17.2658 19.1844 17.0735 18.9921 16.8361 18.9921Z" fill="black"></path>
-									<path d="M6.23999 21.1406C6.00272 21.1406 5.8103 21.333 5.8103 21.5703C5.8103 21.8076 6.00272 22 6.23999 22H6.24119C6.47847 22 6.67024 21.8076 6.67024 21.5703C6.67024 21.333 6.47726 21.1406 6.23999 21.1406Z" fill="black"></path>
-								</svg>
-							</button>
-							<div class="consultant-info">
-								<h5 class="consultant-info-title">Онлайн консультант</h5><span class="consultant-info-subtitle">Напишите ваше сообщение!</span>
-							</div>
-							<button class="consultant-close" data-click-action="consultant:showHide"></button>
-							<div class="consultant-status"></div>
-						</div>
-						<div class="consultant-body">
-							<div class="consultant-desc">
-								<h6 class="consultant-desc-title">Чем вам помочь?</h6><span class="consultant-desc-subtitle">Наш менеджер ответит как только сможет.</span>
-							</div>
-							<div class="consultant-chat"></div>
-							<form class="consultant-form" data-submit-action="consultant:messagePrepare">
-								<div class="consultant-form-placeholder active">Введите сообщение</div>
-								<div class="consultant-form-input" contenteditable data-input-action="consultant:removePlaceholder"></div>
-								<button class="consultant-form-button">
-									<svg viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-										<path d="M5.56812 7.18205L8.75008 4.00008L5.56812 0.818115" stroke="white" stroke-linecap="round" stroke-linejoin="round"></path>
-										<path d="M1.25 4H8.75" stroke="white" stroke-linecap="round" stroke-linejoin="round"></path>
-									</svg>
-								</button>
-							</form>
-							<form class="consultant-reg" data-submit-action="consultant:registration">
-								<input class="consultant-reg-name" placeholder="Как вас зовут?">
-								<input class="consultant-reg-mail" placeholder="mail@domain.kz">
-								<button class="consultant-reg-btn">Отправить</button>
-							</form>
-						</div>
-					</div>
+					<svg width="46" height="46" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<circle cx="23" cy="19" r="19" fill="white"></circle>
+						<path d="M30.5625 12.125H15.4375C15.0578 12.125 14.75 12.4328 14.75 12.8125V25.1875C14.75 25.5672 15.0578 25.875 15.4375 25.875H30.5625C30.9422 25.875 31.25 25.5672 31.25 25.1875V12.8125C31.25 12.4328 30.9422 12.125 30.5625 12.125Z" stroke="#257BE1" stroke-linecap="round" stroke-linejoin="round"></path>
+						<path d="M14.75 14.875H31.25" stroke="#257BE1" stroke-linecap="round" stroke-linejoin="round"></path>
+						<path d="M26.4375 17.625C26.4375 18.5367 26.0753 19.411 25.4307 20.0557C24.786 20.7003 23.9117 21.0625 23 21.0625C22.0883 21.0625 21.214 20.7003 20.5693 20.0557C19.9247 19.411 19.5625 18.5367 19.5625 17.625" stroke="#257BE1" stroke-linecap="round" stroke-linejoin="round"></path>
+						<defs>
+							<filter id="filter0_d" x="0" y="0" width="46" height="46" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+								<feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
+								<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"></feColorMatrix>
+								<feOffset dy="4"></feOffset>
+								<feGaussianBlur stdDeviation="2"></feGaussianBlur>
+								<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"></feColorMatrix>
+								<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"></feBlend>
+								<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"></feBlend>
+							</filter>
+						</defs>
+					</svg></a>
+          <?php include_once ROOT_DIR.'/views/parts/consultant.php'; ?>
 				</div>
 			</div>
 		</section>

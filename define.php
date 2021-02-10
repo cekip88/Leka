@@ -14,3 +14,18 @@ define('REMOTE_IP',$_SERVER['REMOTE_ADDR']);
 define('CTRL_DIR',ROOT_DIR.'/controllers/');
 define('VIEWS_DIR',ROOT_DIR.'/views/');
 
+
+include_once ROOT_DIR.'/workspace/front/core/Languager.class.php';
+$Languager = new Languager();
+
+if(isset($_GET['lang'])){
+    $lang = $_GET['lang'];
+    if(($lang != 'ru') && ($lang != 'en')){
+        $lang = 'ru';
+    }
+}else{
+    $lang= 'ru';
+}
+if(empty($lang)){
+    $lang = 'ru';
+}

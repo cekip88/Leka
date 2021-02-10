@@ -114,34 +114,34 @@ aside
 	&-info
 		+w(calc(100% - 380px))
 	&-img
-		+w(350px)
-		display: block
+		+wh(350px,635px)
+		display: flex
+		align-items: center
+		justify-content: flex-end
 		position: relative
+		text-align: center
 		.img
 			&-title
-				height: 630px
+				+wh(635px,0)
 				font-family: $f_bold
 				font-size: 36px
 				color: RGB($form-block)
 				text-transform: uppercase
-				text-align: center
 				position: absolute
-				top: 0
-				left: 115px
-				bottom: 0
+				left: -290px
+				z-index: 1
 				transform: rotate(-90deg)
 				span
 					white-space: pre
 			&-pluses
-				position: absolute
-				right: 0
-				top: 0
-				bottom: 0
 				display: flex
 				align-items: flex-start
 				flex-direction: column
 				justify-content: center
+				position: relative
+				z-index: 1
 			&-plus
+				width: 232px
 				padding: 19px 11px 16px 22px
 				border-radius: 14px
 				background-color: RGB($white)
@@ -161,8 +161,15 @@ aside
 					position: absolute
 					left: -10px
 			&-desc
+				height: 16px
+				overflow: hidden
 				font-family: $o_reg
+				text-align: left
 				color: rgba($gray,.7)
+		img
+			position: absolute
+			top: 0
+			left: 0
 
 .why
 	&-list
@@ -170,6 +177,9 @@ aside
 		flex-wrap: wrap
 	&-item
 		flex: 0 0 48%
+		.item
+			&-title
+				height: 40px
 
 .partners
 	.slide

@@ -6,12 +6,12 @@ class Router{
 	#	$this->routes = [];
 	}
 	static function getCurrentRoute(){
-		if( URI === '/'){
-			return [
+        $rawUri = explode('?',URI);
+        if( URI === '/' || $rawUri[0] === '/'){
+            return [
 				'module'=>'home'
 			];
-		}
-		$rawUri = explode('?',URI);
+        }
 		$currentAction = [];
 		$path = $rawUri[0];
 		$query = $rawUri[1];
